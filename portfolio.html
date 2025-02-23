@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our portfolio of successful digital marketing campaigns and client success stories">
+    <title>Portfolio - DigiGrowth</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2b1c7d;
+            --secondary-color: #4a90e2;
+            --accent-color: #00c9a7;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            padding-top: 56px;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-filters {
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            border: none;
+            background: none;
+            color: var(--text-color);
+            padding: 8px 20px;
+            margin: 0 5px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .portfolio-item {
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(43, 28, 125, 0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .case-study {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .stats-box {
+            text-align: center;
+            padding: 20px;
+            background: var(--light-bg);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: var(--primary-color);">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">DigiGrowth</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-4">Our Portfolio</h1>
+            <p class="lead mb-0">Showcasing Our Success Stories and Client Achievements</p>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="portfolio-filters text-center">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">SEO</button>
+                <button class="filter-btn">PPC</button>
+                <button class="filter-btn">Social Media</button>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <img src="https://placehold.co/600x400/e9ecef/495057?text=Luxury+E-commerce" alt="E-commerce Success Story">
+                        <div class="portfolio-overlay">
+                            <h3>LuxuryBoutique Online Success</h3>
+                            <p>Transformed a local boutique into a thriving e-commerce business</p>
+                            <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#case1Modal">View Case Study</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <img src="https://placehold.co/600x400/e9ecef/495057?text=B2B+Tech+Solutions" alt="B2B Marketing Campaign">
+                        <div class="portfolio-overlay">
+                            <h3>TechSolutions B2B Growth</h3>
+                            <p>Comprehensive B2B marketing strategy with 400% ROI</p>
+                            <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#case2Modal">View Case Study</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <img src="https://placehold.co/600x400/e9ecef/495057?text=Restaurant+Chain" alt="Social Media Campaign">
+                        <div class="portfolio-overlay">
+                            <h3>FreshEats Restaurant Chain</h3>
+                            <p>Local restaurant chain's social media transformation</p>
+                            <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#case3Modal">View Case Study</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study Modals -->
+            <div class="modal fade" id="case1Modal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">LuxuryBoutique Online Success Story</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h6 class="fw-bold">Challenge:</h6>
+                            <p>A high-end boutique with 15 years of local presence wanted to expand their reach through e-commerce during the pandemic.</p>
+                            
+                            <h6 class="fw-bold mt-4">Strategy:</h6>
+                            <ul class="list-unstyled">
+                                <li>✓ Developed a luxury e-commerce website with virtual try-on features</li>
+                                <li>✓ Implemented targeted SEO strategy for luxury fashion keywords</li>
+                                <li>✓ Created sophisticated PPC campaigns targeting high-intent luxury shoppers</li>
+                                <li>✓ Established Instagram and Pinterest presence for visual marketing</li>
+                            </ul>
+
+                            <h6 class="fw-bold mt-4">Results:</h6>
+                            <div class="row g-4 mt-2">
+                                <div class="col-md-3">
+                                    <div class="stats-box">
+                                        <div class="stats-number">300%</div>
+                                        <p class="mb-0">Revenue Growth</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stats-box">
+                                        <div class="stats-number">5X</div>
+                                        <p class="mb-0">Online Traffic</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stats-box">
+                                        <div class="stats-number">45%</div>
+                                        <p class="mb-0">Conversion Rate</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stats-box">
+                                        <div class="stats-number">25K+</div>
+                                        <p class="mb-0">Social Followers</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="case2Modal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">TechSolutions B2B Marketing Success</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h6 class="fw-bold">Challenge:</h6>
+                            <p>A B2B software company needed to increase qualified leads and market share in a competitive industry.</p>
+                            
+                            <h6 class="fw-bold mt-4">Strategy:</h6>
+                            <ul class="list-unstyled">
+                                <li>✓ Developed comprehensive content marketing strategy</li>
+                                <li>✓ Implemented ABM (Account-Based Marketing) campaigns</li>
+                                <li>✓ Created targeted LinkedIn advertising campaigns</li>
+                                <li>✓ Established thought leadership through webinars and whitepapers</li>
+                            </ul>
+
+                            <h6 class="fw-bold mt-4">Results:</h6>
+                            <div class="row g-4 mt-2">
+                                <div class="col-md-3">
+                                    <div class="stats-box">
+                                        <div class="stats-number">400%</div>
+                                        <p class="mb-0">ROI</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stats-box">
+                                        <div class="stats-number">250+</div>
+                                        <p class="mb-0">Qualified Leads</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stats-box">
+                                        <div class="stats-number">85%</div>
+                                        <p class="mb-0">Lead Quality</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stats-box">
+                                        <div class="stats-number">12</div>
+                                        <p class="mb-0">Enterprise Clients</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="case3Modal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">FreshEats Social Media Success</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h6 class="fw-bold">Challenge:</h6>
+                            <p>A local restaurant chain wanted to increase brand awareness and foot traffic across their 5 locations.</p>
+                            
+                            <h6 class="fw-bold mt-4">Strategy:</h6>
+                            <ul class="list-unstyled">
+                                <li>✓ Created engaging social media content strategy</li>
+                                <li>✓ Implemented influencer marketing campaigns</li>
+                                <li>✓ Developed location-based advertising</li>
+                                <li>✓ Launched user-generated content campaigns</li>
+                            </ul>
+
+                            <h6 class="fw-bold mt-4">Results:</h6>
+                            <div class="row g-4 mt-2">
+                                <div class="col-md-3">
+                                    <div class="stats-box">
+                                        <div class="stats-number">150%</div>
+                                        <p class="mb-0">Revenue Growth</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stats-box">
+                                        <div class="stats-number">50K+</div>
+                                        <p class="mb-0">New Followers</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stats-box">
+                                        <div class="stats-number">200%</div>
+                                        <p class="mb-0">Engagement Rate</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stats-box">
+                                        <div class="stats-number">35%</div>
+                                        <p class="mb-0">Foot Traffic</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Featured Case Studies</h2>
+            
+            <div class="case-study">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <img src="https://via.placeholder.com/600x400" alt="Case Study 1" class="img-fluid rounded-3 shadow">
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="mb-4">TechCorp's Digital Transformation</h3>
+                        <p>We helped TechCorp revolutionize their online presence through a comprehensive digital marketing strategy.</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="stats-box">
+                                    <div class="stats-number">300%</div>
+                                    <p class="mb-0">Increase in Organic Traffic</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="stats-box">
+                                    <div class="stats-number">150%</div>
+                                    <p class="mb-0">Increase in Conversions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study">
+                <div class="row align-items-center flex-row-reverse">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <img src="https://via.placeholder.com/600x400" alt="Case Study 2" class="img-fluid rounded-3 shadow">
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="mb-4">Fashion Brand Social Success</h3>
+                        <p>Our social media strategy helped this fashion brand reach new audiences and drive significant engagement.</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="stats-box">
+                                    <div class="stats-number">50K+</div>
+                                    <p class="mb-0">New Followers</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="stats-box">
+                                    <div class="stats-number">200%</div>
+                                    <p class="mb-0">Engagement Rate</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>DigiGrowth</h5>
+                    <p>Your partner in digital success</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p>Email: info@digigrowth.com<br>Phone: (555) 123-4567</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>&copy; 2023 DigiGrowth. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
