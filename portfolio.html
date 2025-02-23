@@ -15,14 +15,14 @@
             --text-color: #333;
             --light-bg: #f8f9fa;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            padding-top: 56px;
         }
 
+        .hero-section,
         .page-header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -426,5 +426,39 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    // Add data-category attributes to portfolio items
+    portfolioItems[0].setAttribute('data-category', 'SEO PPC');
+    portfolioItems[1].setAttribute('data-category', 'PPC');
+    portfolioItems[2].setAttribute('data-category', 'Social Media');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            const category = this.textContent.trim();
+
+            portfolioItems.forEach(item => {
+                if (category === 'All') {
+                    item.style.display = 'block';
+                } else {
+                    if (item.getAttribute('data-category').includes(category)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        });
+    });
+});
+</script>
 </body>
 </html>
