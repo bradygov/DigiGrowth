@@ -319,39 +319,71 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    $(document).ready(function() {
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
 
-    // Add data-category attributes to portfolio items
-    portfolioItems[0].setAttribute('data-category', 'SEO PPC');
-    portfolioItems[1].setAttribute('data-category', 'PPC');
-    portfolioItems[2].setAttribute('data-category', 'Social Media');
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
-
-            const category = this.textContent.trim();
-
-            portfolioItems.forEach(item => {
-                if (category === 'All') {
-                    item.style.display = 'block';
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                let currentValue = Math.floor(progress * (end - start) + start);
+                
+                // Handle special cases like '5X' format
+                if ($(obj).text().includes('X')) {
+                    currentValue = Math.floor(progress * 5);
+                    $(obj).text(currentValue + 'X');
+                } else if ($(obj).text().includes('K+')) {
+                    $(obj).text(currentValue + 'K+');
+                } else if ($(obj).text().includes('%')) {
+                    $(obj).text(currentValue + '%');
                 } else {
-                    if (item.getAttribute('data-category').includes(category)) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
+                    $(obj).text(currentValue);
+                }
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        function startAnimation(element) {
+            const text = $(element).text();
+            let endValue = parseInt(text.replace(/[^0-9]/g, ''));
+            $(element).prop('Counter', 0);
+            animateValue(element, 0, endValue, 2000);
+        }
+
+        // Handle animation on scroll
+        let animated = new Set();
+        $(window).on('scroll', function() {
+            $('.stats-number').each(function() {
+                if (isElementInViewport(this) && !animated.has(this)) {
+                    animated.add(this);
+                    startAnimation(this);
                 }
             });
         });
+
+        // Initial check for elements in viewport
+        $('.stats-number').each(function() {
+            if (isElementInViewport(this) && !animated.has(this)) {
+                animated.add(this);
+                startAnimation(this);
+            }
+        });
     });
-});
 </script>
 </body>
 </html>
